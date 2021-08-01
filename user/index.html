@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+    <title>Logat Dayak</title>
+
+    <!-- vendor css -->
+    <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/jqvmap/jqvmap.min.css" rel="stylesheet">
+
+    <!-- DashForge CSS -->
+    <link rel="stylesheet" href="assets/css/dashforge.css">
+    <link rel="stylesheet" href="assets/css/dashforge.dashboard.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/feather-icons/feather.min.js"></script>
+    <script src="lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/dashforge.js"></script>
+    <script src="assets/js/dashforge.aside.js"></script>
+
+    <style> 
+
+    .icon-user {
+      position: absolute;
+      right: 5%;
+      bottom: 30px;
+    }
+
+    #hasil {
+      /* background-color: red; */
+      width: auto;
+      height: 120px;
+      border-radius: 5px;
+      border-style: solid;
+      border-color: #dfe6e9;
+      border-width: thin;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    #waktu {
+      font-size: 10px;
+      font-style: italic;
+      color: #b2bec3;
+      margin-bottom: 20px;
+    }
+
+    </style>
+
+  </head>
+
+  <body>
+    <aside class="aside aside-fixed">
+      <div class="aside-header">
+        <a href="index.html" class="aside-logo">LOGAT DAYAK</a>
+        <a href="" class="aside-menu-link">
+          <i data-feather="menu"></i>
+          <i data-feather="x"></i>
+        </a>
+      </div>
+      <div class="aside-body">
+        <!-- <div class="aside-loggedin"> -->
+        <ul class="nav nav-aside">
+          <li class="nav-item"><a href="index.html" class="nav-link"><i data-feather="book"></i> <span>Beranda</span></a></li>
+        </ul>
+      <!-- </div> -->
+    </aside>
+
+    <div class="content ht-100v pd-0">
+      <div class="content-header">
+        <div class="content-search">
+        </div>
+      </div>
+      
+      <form>
+      <form action="api/cari.php" method="post">
+          <div class="content-body">
+            <div class="container pd-x-0">
+              <!-- <div class="row"> -->
+                <div class="form-row justify-content-center align-items-center">
+                    <div class="col-xs-5 mg-t-9">
+                        <h6>BAHASA INDONESIA</h6>
+                    </div>
+                    <div class="col-xs-2">
+                        <i data-feather="arrow-right" width="15px" height="15px"></i>
+                    </div>
+                    <div class="col-xs-5">
+                        <select id="subdayak" name="sub" class="custom-select" style="width: 100%;">
+                        <option>Pilih Bahasa..</option>
+                        </select>
+                    </div>
+                </div>
+
+              <div class="row">
+                <div class="col-sm-12 col-lg-12 col-xs-12">
+                    <div data-label="Example" class="df-example demo-forms">
+                        <div class="row row-sm">
+                            <div class="col-sm-6 mg-t-15">
+                            <textarea class="form-control" rows="5" name="kata" placeholder="Bahasa Indonesia"></textarea>
+                            </div>
+
+                            <div class="col-sm-6 mg-t-15" style="position: relative;" id="areaTerjemahan">
+
+                              <div id="hasil">
+                                <p style="color: #dfe6e9;">Hasil Terjemahan</p>
+
+                              </div>
+                              <audio id="source" autoplay="false" src="" type="audio/mpeg"></audio>
+                              <span title="Listen" class="icon-user" onclick="playAudio();">
+                                  <i data-feather="volume-2"></i>
+                              </span>
+                            </div>
+
+                            <div id="waktu">
+                        
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+<!-- 
+                <div class="col-sm-12 col-lg-12 col-xs-12">
+                    <div data-label="Example" class="df-example demo-forms">
+                        <div class="row row-sm">
+                            <div class="col-sm-6 mg-t-15" style="position: relative;" id="areaTerjemahan">
+
+                              <div id="hasil">
+                                
+                                <p style="color: #dfe6e9;">Hasil Terjemahan</p>
+
+                              </div>
+                              <audio id="source" autoplay="false" src="" type="audio/mpeg"></audio>
+                              <span title="Listen" class="icon-user" onclick="playAudio();">
+                                  <i data-feather="volume-2"></i>
+                              </span>
+                            </div>
+
+                            <div id="waktu">
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-sm-12 col-lg-12 col-xs-12">
+                    <div class="row row-sm">
+                        <div class="col-sm-12 mg-t-0">
+                            <button type="submit" id="arti" class="btn btn-primary btn-block">Terjemahankan</button>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12 col-lg-12 col-xs-12  mg-t-40">
+                  <div class="row row-sm justify-content-center align-items-center">
+                    <footer>
+                      © 2020 Siskom - Tri Floren Doni
+                    </footer>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </form>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            $.getJSON("api/subapi.php", function(data){
+                $.each(data, function(key, value){
+                    $('#subdayak').append('<option value="'+value.id+'">'+value.sub+'</option>');
+                });
+            }); 
+        });
+    </script>
+
+    <script>
+      
+      var url_suara = 'admin/upload/';
+      var list = [];
+
+      $(function(){
+          $('form').on('submit', function(e){
+              e.preventDefault();
+              $.ajax({
+                  type :'post',
+                  url :'api/cari.php',
+                  data: $('form').serialize(),
+                  success: function(result){
+                        data = jQuery.parseJSON(result);
+                        // console.log(result);
+                        list = [];
+                        $.each(data.suara, function (index, value) {
+                          list.push(new Audio(url_suara+value))
+                        })
+                        $('#hasil').empty();
+                        $('#waktu').empty();
+                        
+
+                        var kalimat = data['kata'];
+                        var waktu = 'waktu pencarian : '+data['waktu'];
+
+                        $('#hasil').append(kalimat);
+                        $('#waktu').append(waktu);
+                      }
+                  })
+              })
+          })
+
+          function play(audio, callback) {
+            audio.pause();
+            audio.play();
+            if (callback) {
+              audio.addEventListener('ended', callback)
+            }
+          }
+
+          function playAudio() {
+            var listAudio = list;
+            // console.log(listAudio)
+            var index = 0;
+            function recursive_play() {
+              if (index + 1 === listAudio.length) {
+                play(listAudio[index], null);
+              } else {
+                play(listAudio[index], function () {
+                  index++;
+                  recursive_play();
+                })
+              }
+            }
+            recursive_play();
+            // console.log(list)
+          }
+    </script>
+  </body>
+</html>
